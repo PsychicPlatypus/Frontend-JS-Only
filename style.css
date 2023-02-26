@@ -84,3 +84,19 @@
     font-style: italic;
     color: rgb(83, 83, 83);
 }
+
+#invisible-info-bubble {
+    display: none;
+}
+
+#hidden-image {
+    display: none;
+}
+
+#book-image {
+    position: relative;
+    width: 100%;
+    height: 18.2em;
+    object-fit: contain;
+    margin: 0.8em;
+}

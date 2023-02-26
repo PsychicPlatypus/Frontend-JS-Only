@@ -236,6 +236,7 @@ let bookCard = (book) => `
             <button id="overlay-button">
                 <div class="card-title" id="card-title">${book.title}</div>
                 <div class="card-subtitle" id="card-subtitle">${book.author}</div>
+                <img class="card-img-top" src="" alt="Card image cap" id="hidden-image">
                 <div class="card-text" id="card-text">${book.description}</div>
             </button>
             <div class="btn-group" role="group">
@@ -246,6 +247,9 @@ let bookCard = (book) => `
                     ${book.price} <i class="fas fa-euro-sign"></i>
                 </button>
             </div>
+            <div id="invisible-info-bubble">
+                <i class="fas fa-info-circle fa-g"></i> <span>Double click the card text to collapse it</span>
+            </div> 
         </div>
     </div>
 `;
