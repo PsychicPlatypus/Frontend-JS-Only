@@ -49,7 +49,7 @@
     },
     {
         "id": 7,
-        "title": "CSS Mastery: Advanced Web Standards Solutions",
+        "title": "CSS Mastery Advanced Web Standard",
         "author": "Simon Collison",
         "description": "This book is aimed at intermediate to advanced CSS developers and provides a comprehensive guide to advanced CSS techniques, including layout, typography, and cross-browser compatibility. It includes plenty of practical examples and code snippets to help readers apply the concepts to their own projects.",
         "category": "CSS",
@@ -57,7 +57,7 @@
     },
     {
         "id": 8,
-        "title": "JavaScript and jQuery: Interactive Front-End Web Development",
+        "title": "JavaScript and jQuery: Interactive Front-End",
         "author": "Jon Duckett",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         "category": "JavaScript",
@@ -65,7 +65,7 @@
     },
     {
         "id": 9,
-        "title": "Don't Make Me Think: A Common Sense Approach to Web Usability",
+        "title": "Don't Make Me Think: A Common Sense",
         "author": "Steve Krug",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         "category": "UX",
@@ -74,7 +74,7 @@
     {
         "id": 10,
         "title": "HTML5 and CSS3 All-in-One For Dummies",
-        "author": "Andy Harris and Chris McCulloh",
+        "author": "Andy Harris",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         "category": "HTML",
         "price": 39.99
@@ -89,7 +89,7 @@
     },
     {
         "id": 12,
-        "title": "Eloquent JavaScript: A Modern Introduction to Programming",
+        "title": "Eloquent JavaScript: A Modern Introduction",
         "author": "Marijn Haverbeke",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         "category": "JavaScript",
@@ -97,23 +97,23 @@
     },
     {
         "id": 13,
-        "title": "The UX Book: Process and Guidelines for Ensuring a Quality User Experience",
-        "author": "Rex Hartson and Pardha S. Pyla",
+        "title": "The UX Book: Process and Guidelines",
+        "author": "Rex Hartson",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         "category": "UX",
         "price": 54.99
     },
     {
         "id": 14,
-        "title": "Learning Web Design: A Beginner's Guide to HTML, CSS, JavaScript, and Web Graphics",
-        "author": "Jennifer Niederst Robbins",
+        "title": "Learning Web Design",
+        "author": "Jennifer Niederst",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         "category": "HTML",
         "price": 31.99
     },
     {
         "id": 15,
-        "title": "CSS Secrets: Better Solutions to Everyday Web Design Problems",
+        "title": "CSS Secrets: Better Solutions",
         "author": "Lea Verou",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         "category": "CSS",
@@ -129,7 +129,7 @@
     },
     {
         "id": 17,
-        "title": "Seductive Interaction Design: Creating Playful, Fun, and Effective User Experiences",
+        "title": "Interaction Design: Creating Apps",
         "author": "Stephen Anderson",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         "category": "UX",
