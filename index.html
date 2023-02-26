@@ -20,7 +20,8 @@
 <body>
     <div id="app">
         <nav class="navbar bg-white flex-wrap justify-content-center sticky-top" id="filter-container">
-            <a class="navbar-brand" href="#">BookStore</a>
+            <a class="navbar-brand" onclick="window.location.reload(-1)"
+                style="cursor: pointer; color:black">BookStore</a>
             &nbsp;&nbsp;
         </nav>
         <span id="info-bubble">
@@ -33,11 +34,12 @@
         </div>
         <div class="d-flex justify-content-end" id="shopping-basket">
             <div class="dropup">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+                <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton1"
                     data-bs-toggle="dropdown" aria-expanded="false">
                     <i class="fas fa-shopping-basket"></i>
                 </button>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1" id="cart-list">
+                    <div class="dropdown-item">No items</div>
                 </ul>
             </div>
         </div>

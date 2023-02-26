@@ -104,7 +104,7 @@ function addFilters() {
         filterDiv.innerHTML = `
             
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-        aria-expanded="false">${
+        aria-expanded="false" style="color: black;">${
             filterName.charAt(0).toUpperCase() + filterName.slice(1)
         }</a>
             <div class="dropdown-menu" id="filter-${filterName}">
@@ -151,6 +151,7 @@ function addToCart(bookTitle) {
 
 function displayCart() {
     const cartList = document.getElementById("cart-list");
+
     const cartListItems = cart.map((book) => cartItem(book)).join("");
     cartList.innerHTML = cartListItems;
 
@@ -161,6 +162,12 @@ function displayCart() {
             removeBookFromCart(item.name);
         });
     });
+
+    if (cart.length === 0) {
+        cartList.innerHTML = `
+            <div class="dropdown-item">No items</div>
+        `;
+    }
 }
 
 function removeBookFromCart(bookTitle) {
@@ -231,12 +238,12 @@ function displayBooks() {
 }
 
 let bookCard = (book) => `
-    <div class="card" id="base-card" name="${book.id}">
+    <div class="card" id="base-card">
         <did class="card-body" id="no-style">
             <button id="overlay-button">
                 <div class="card-title" id="card-title">${book.title}</div>
                 <div class="card-subtitle" id="card-subtitle">${book.author}</div>
-                <img class="card-img-top" src="" alt="Card image cap" id="hidden-image">
+                <img class="card-img-top" src="" alt="..." id="hidden-image">
                 <div class="card-text" id="card-text">${book.description}</div>
             </button>
             <div class="btn-group" role="group">
