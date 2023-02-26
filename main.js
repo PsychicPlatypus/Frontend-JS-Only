@@ -38,6 +38,36 @@ function getAllPrices(books) {
     prices.sort();
 }
 
+function sortCategory(category) {
+    if (category.length) {
+        chosenCategory = category;
+        displayBooks();
+        return;
+    }
+    chosenCategory = "All";
+    displayBooks();
+}
+
+function sortAuthor(author) {
+    if (author.length) {
+        chosenAuthor = author;
+        displayBooks();
+        return;
+    }
+    chosenAuthor = "All";
+    displayBooks();
+}
+
+function sortPrice(price) {
+    if (price.length) {
+        chosenPrice = price;
+        displayBooks();
+        return;
+    }
+    chosenPrice = "All";
+    displayBooks();
+}
+
 function addFilters() {
     const filterList = document.getElementById("filter-container");
     const filters = [
@@ -45,39 +75,21 @@ function addFilters() {
             name: "category",
             options: categories,
             callback: (category) => {
-                if (category.length) {
-                    chosenCategory = category;
-                    displayBooks();
-                    return;
-                }
-                chosenCategory = "All";
-                displayBooks();
+                sortCategory(category);
             },
         },
         {
             name: "author",
             options: authors,
             callback: (author) => {
-                if (author.length) {
-                    chosenAuthor = author;
-                    displayBooks();
-                    return;
-                }
-                chosenAuthor = "All";
-                displayBooks();
+                sortAuthor(author);
             },
         },
         {
             name: "price",
             options: prices,
             callback: (price) => {
-                if (price.length) {
-                    chosenPrice = price;
-                    displayBooks();
-                    return;
-                }
-                chosenPrice = "All";
-                displayBooks();
+                sortPrice(price);
             },
         },
     ];
@@ -123,6 +135,48 @@ function addFilters() {
     });
 }
 
+function addToCart(bookTitle) {
+    if (bookTitle) {
+        console.log(bookTitle);
+        const book = books.find((book) => book.title === bookTitle);
+        const bookInCart = cart.find((book) => book.title === bookTitle);
+        if (bookInCart) {
+            bookInCart.quantity++;
+        } else {
+            cart.push({ ...book, quantity: 1 });
+        }
+        displayCart();
+    }
+}
+
+function displayCart() {
+    const cartList = document.getElementById("cart-list");
+    const cartListItems = cart.map((book) => cartItem(book)).join("");
+    cartList.innerHTML = cartListItems;
+
+    // Give each cart item a click event listener
+    const cartItems = document.querySelectorAll("#remove-from-cart");
+    cartItems.forEach((item) => {
+        item.addEventListener("click", () => {
+            removeBookFromCart(item.name);
+        });
+    });
+}
+
+function removeBookFromCart(bookTitle) {
+    if (bookTitle) {
+        const bookInCart = cart.find((book) => book.title === bookTitle);
+        if (bookInCart) {
+            if (bookInCart.quantity > 1) {
+                bookInCart.quantity--;
+            } else {
+                cart = cart.filter((book) => book.title !== bookTitle);
+            }
+        }
+        displayCart();
+    }
+}
+
 function displayBooks() {
     const bookList = document.getElementById("book-list");
     const bookListItems = books
@@ -160,6 +214,20 @@ function displayBooks() {
             expandBook(card);
         });
     });
+
+    const categoryButtons = document.querySelectorAll("#category-btn");
+    categoryButtons.forEach((categoryBtn) => {
+        categoryBtn.addEventListener("click", (e) => {
+            sortCategory(e.target.name);
+        });
+    });
+
+    const shopButtons = document.querySelectorAll("#shop-btn");
+    shopButtons.forEach((shopBtn) => {
+        shopBtn.addEventListener("click", (e) => {
+            addToCart(e.target.name);
+        });
+    });
 }
 
 let bookCard = (book) => `
@@ -171,13 +239,23 @@ let bookCard = (book) => `
                 <div class="card-text" id="card-text">${book.description}</div>
             </button>
             <div class="btn-group" role="group">
-                <button type="button" class="btn btn-outline-secondary">${book.category}</button>
-                <button type="button" class="btn btn-outline-primary" ">
+                <button type="button" class="btn btn-outline-secondary" id="category-btn" name="${book.category}">
+                    ${book.category}
+                </button>
+                <button type="button" class="btn btn-outline-primary" id="shop-btn" name="${book.title}">
                     ${book.price} <i class="fas fa-euro-sign"></i>
                 </button>
             </div>
         </div>
     </div>
+`;
+
+let cartItem = (book) => `
+    <li>
+        <div class="dropdown-item" href="#">
+        <a style="margin-right: 1em" id="remove-from-cart" name="${book.title}"> <i class="fas fa-x"></i> </a>
+         ${book.title}, ${book.quantity} </a>
+    </li>
 `;
 
 start();

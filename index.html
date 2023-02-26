@@ -23,13 +23,28 @@
             <a class="navbar-brand" href="#">BookStore</a>
             &nbsp;&nbsp;
         </nav>
+        <span id="info-bubble">
+            <i class="fas fa-info-circle fa-g"></i> <span>Double click a card to expand it</span>
+        </span>
         <div class="container container-fluid position-relative">
             <div class="row justify-content-center" id="book-list"> </div>
-            <div class="btn btn-success dropup dropdown-menu-end" id="shopping-basket"> <i
-                    class="fa fa-shopping-basket"></i></div>
             <script type="module" src="/main.js">
             </script>
         </div>
+        <!-- I need a dropup button to be at the end of the screen -->
+        <div class="d-flex justify-content-end" id="shopping-basket">
+            <div class="dropup">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fas fa-shopping-basket"></i>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1" id="cart-list">
+
+                </ul>
+            </div>
+        </div>
+        <br>
+    </div>
 </body>
 
 </html>
