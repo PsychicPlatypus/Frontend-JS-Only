@@ -1,6 +1,24 @@
 import "./style.css";
 import { expandBook } from "./book.js";
+import {
+    sortByAuthorAsc,
+    sortByAuthorDesc,
+    sortByPriceAsc,
+    sortByPriceDesc,
+    sortByTitleAsc,
+    sortByTitleDesc,
+} from "./filters.js";
+
 import BOOKS from "./books.json";
+
+let _filters = [
+    "Title, Ascending",
+    "Title, Descending",
+    "Author, Ascending",
+    "Author, Descending",
+    "Price, Ascending",
+    "Price, Descending",
+];
 
 let books,
     categories = [],
@@ -9,6 +27,7 @@ let books,
     chosenCategory = "All",
     chosenAuthor = "All",
     chosenPrice = "All",
+    chosenFilter = "All",
     cart = [];
 
 async function start() {
@@ -16,7 +35,7 @@ async function start() {
     getAllAuthors(books);
     getAllCategories(books);
     getAllPrices(books);
-    addFilters();
+    addSortersAndFilters();
     displayBooks();
 }
 
@@ -68,7 +87,18 @@ function sortPrice(price) {
     displayBooks();
 }
 
-function addFilters() {
+function sortFilter(filter) {
+    if (filter.length) {
+        chosenFilter = filter;
+        sortBooks();
+        displayBooks();
+        return;
+    }
+    chosenFilter = "All";
+    displayBooks();
+}
+
+function addSortersAndFilters() {
     const filterList = document.getElementById("filter-container");
     const filters = [
         {
@@ -90,6 +120,13 @@ function addFilters() {
             options: prices,
             callback: (price) => {
                 sortPrice(price);
+            },
+        },
+        {
+            name: "filter",
+            options: _filters,
+            callback: (filter) => {
+                sortFilter(filter);
             },
         },
     ];
@@ -133,6 +170,31 @@ function addFilters() {
             });
         });
     });
+}
+
+function sortBooks() {
+    switch (chosenFilter) {
+        case "Title, Ascending":
+            books.sort(sortByTitleAsc);
+            break;
+        case "Title, Descending":
+            books.sort(sortByTitleDesc);
+            break;
+        case "Author, Ascending":
+            books.sort(sortByAuthorAsc);
+            break;
+        case "Author, Descending":
+            books.sort(sortByAuthorDesc);
+            break;
+        case "Price, Ascending":
+            books.sort(sortByPriceAsc);
+            break;
+        case "Price, Descending":
+            books.sort(sortByPriceDesc);
+            break;
+        default:
+            break;
+    }
 }
 
 function addToCart(bookTitle) {
@@ -186,6 +248,7 @@ function removeBookFromCart(bookTitle) {
 
 function displayBooks() {
     const bookList = document.getElementById("book-list");
+    sortBooks();
     const bookListItems = books
         .filter((book) => {
             if (chosenCategory === "All") {
