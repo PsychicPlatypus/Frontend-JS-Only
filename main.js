@@ -120,7 +120,7 @@ function addSortersAndFilters() {
             },
         },
         {
-            name: "filter",
+            name: "sort",
             options: _filters,
             callback: (filter) => {
                 sortFilter(filter);
@@ -282,7 +282,12 @@ function displayBooks() {
         })
         .map((book) => bookCard(book))
         .join("");
-    bookList.innerHTML = bookListItems;
+
+    bookListItems === ""
+        ? (bookList.innerHTML = `
+            <div class="text-muted mt-5">No books found... Try changing the active filters!</div>
+        `)
+        : (bookList.innerHTML = bookListItems);
 
     // Give each card a click event listener
     const cards = document.querySelectorAll("#base-card");
@@ -307,7 +312,7 @@ function displayBooks() {
     });
 }
 
-let bookCard = (book) => `
+const bookCard = (book) => `
     <div class="card" id="base-card">
         <did class="card-body" id="no-style">
             <button id="overlay-button">
@@ -331,7 +336,7 @@ let bookCard = (book) => `
     </div>
 `;
 
-let cartItem = (book) => `
+const cartItem = (book) => `
     <li>
         <div class="dropdown-item" href="#">
         <a style="margin-right: 1em" id="remove-from-cart" name="${book.title}"> <i class="fas fa-x"></i> </a>
