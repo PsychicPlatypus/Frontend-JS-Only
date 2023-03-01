@@ -11,7 +11,7 @@ import {
 
 import BOOKS from "./books.json";
 
-let _filters = [
+const _filters = [
     "Title, Ascending",
     "Title, Descending",
     "Author, Ascending",
@@ -19,6 +19,8 @@ let _filters = [
     "Price, Ascending",
     "Price, Descending",
 ];
+
+const priceRanges = ["10-30€", "30-50€", "50-60€"];
 
 let books,
     categories = [],
@@ -34,7 +36,6 @@ async function start() {
     books = BOOKS;
     getAllAuthors(books);
     getAllCategories(books);
-    getAllPrices(books);
     addSortersAndFilters();
     displayBooks();
 }
@@ -49,12 +50,6 @@ function getAllCategories(books) {
     const categories_ = books.map((book) => book.category);
     categories = [...new Set(categories_)];
     categories.sort();
-}
-
-function getAllPrices(books) {
-    const prices_ = books.map((book) => book.price);
-    prices = [...new Set(prices_)];
-    prices.sort();
 }
 
 function sortCategory(category) {
@@ -77,9 +72,11 @@ function sortAuthor(author) {
     displayBooks();
 }
 
-function sortPrice(price) {
-    if (price.length) {
-        chosenPrice = price;
+function sortPrice(priceRange) {
+    priceRange = priceRange.replace("€", "");
+    const [lower, upper] = priceRange.split("-");
+    if (lower && upper) {
+        chosenPrice = [lower, upper];
         displayBooks();
         return;
     }
@@ -117,7 +114,7 @@ function addSortersAndFilters() {
         },
         {
             name: "price",
-            options: prices,
+            options: priceRanges,
             callback: (price) => {
                 sortPrice(price);
             },
@@ -177,21 +174,31 @@ function sortBooks() {
         case "Title, Ascending":
             books.sort(sortByTitleAsc);
             break;
+
         case "Title, Descending":
             books.sort(sortByTitleDesc);
             break;
+
         case "Author, Ascending":
             books.sort(sortByAuthorAsc);
             break;
+
         case "Author, Descending":
             books.sort(sortByAuthorDesc);
             break;
+
         case "Price, Ascending":
             books.sort(sortByPriceAsc);
             break;
+
         case "Price, Descending":
             books.sort(sortByPriceDesc);
             break;
+
+        case "All":
+            books.sort((a, b) => 1);
+            break;
+
         default:
             break;
     }
@@ -269,7 +276,7 @@ function displayBooks() {
                 return true;
             } else {
                 return (
-                    Number.toString(book.price) === Number.toString(chosenPrice)
+                    book.price >= chosenPrice[0] && book.price <= chosenPrice[1]
                 );
             }
         })
