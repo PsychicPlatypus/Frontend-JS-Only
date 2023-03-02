@@ -196,7 +196,7 @@ function sortBooks() {
             break;
 
         case "All":
-            books.sort((a, b) => 1);
+            books.sort((a, b) => a.id > b.id);
             break;
 
         default:
